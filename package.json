@@ -33,6 +33,7 @@
     "@playwright/test": "^1.52.0",
     "@types/mocha": "9.1.0",
     "@types/node": "^16.18.126",
+    "lighthouse": "^12.6.0",
     "playwright": "^1.52.0",
     "rimraf": "^6.0.1"
   }
