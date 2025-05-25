@@ -1,0 +1,9 @@
+node_modules
+lighthouse
+.DS_Store
+.idea
+dist
+test-results
+html-report
+src
+test
