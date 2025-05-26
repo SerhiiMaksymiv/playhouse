@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
+    "module": "preserve",
+    "target": "es2022",
     "lib": ["esnext"],
     "declaration": true,
     "strict": true,
