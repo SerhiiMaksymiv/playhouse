@@ -1,6 +1,15 @@
-node_modules/
+# Rules from: /Users/mcs/repos/playhouse/.gitignore
+node_modules
+lighthouse
+.DS_Store
+.idea
+test-results
+html-report
+.npmignore
 
-# npmignore
+
+# npmignore - content above this line is automatically generated and modifications may be omitted
+# see npmjs.com/npmignore for more details.
 !dist/
 src/
 test/

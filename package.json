@@ -1,6 +1,6 @@
 {
   "name": "litgherhouse",
-  "version": "4.0.1",
+  "version": "4.0.3",
   "description": "Playwright Lighthouse Audit",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -10,9 +10,16 @@
     "lib"
   ],
   "scripts": {
-    "prebuild": "rimraf lib",
+    "prebuild": "rimraf lib dist && npmignore --auto",
     "build": "tsup",
     "test": "playwright test --project audit"
+  },
+  "publishConfig": {
+    "ignore": [
+      "!dist/",
+      "src/",
+      "test/"
+    ]
   },
   "repository": {
     "type": "git",
