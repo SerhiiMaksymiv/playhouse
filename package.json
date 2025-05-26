@@ -1,6 +1,6 @@
 {
   "name": "litgherhouse",
-  "version": "4.0.7",
+  "version": "4.0.9",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,9 +35,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "typescript": "^5.8.3",
     "@playwright/test": "^1.52.0",
     "@types/mocha": "9.1.0",
     "@types/node": "^16.18.126",
