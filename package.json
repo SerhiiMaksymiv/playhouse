@@ -1,11 +1,11 @@
 {
   "name": "litgherhouse",
-  "version": "4.0.14",
+  "version": "4.0.17",
   "description": "Playwright Lighthouse Audit",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mjs",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "scripts": {
     "prebuild": "rimraf lib dist && npmignore --auto",
@@ -33,8 +33,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-  },
-  "devDependencies": {
     "typescript": "^5.8.3",
     "@playwright/test": "^1.52.0",
     "@types/mocha": "9.1.0",
