@@ -6,6 +6,7 @@ lighthouse
 test-results
 html-report
 .npmignore
+dist/
 
 
 # npmignore - content above this line is automatically generated and modifications may be omitted

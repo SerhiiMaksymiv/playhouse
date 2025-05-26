@@ -1,13 +1,13 @@
 {
   "name": "litgherhouse",
-  "version": "4.0.4",
+  "version": "4.0.6",
   "description": "Playwright Lighthouse Audit",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "module": "lib/index.mjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
   "type": "module",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "prebuild": "rimraf lib dist && npmignore --auto",

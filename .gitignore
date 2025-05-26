@@ -5,4 +5,4 @@ lighthouse
 test-results
 html-report
 .npmignore
-dist
+dist/
