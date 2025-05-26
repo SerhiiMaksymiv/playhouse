@@ -4,3 +4,4 @@ lighthouse
 .idea
 test-results
 html-report
+dist
