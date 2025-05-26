@@ -4,13 +4,14 @@
   "description": "Playwright Lighthouse Audit",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "module": "lib/index.mjs",
   "type": "module",
   "files": [
-    "lib/**/*"
+    "lib"
   ],
   "scripts": {
     "prebuild": "rimraf lib",
-    "build": "tsc",
+    "build": "tsup",
     "test": "playwright test --project audit"
   },
   "repository": {
@@ -34,7 +35,9 @@
     "@types/mocha": "9.1.0",
     "@types/node": "^16.18.126",
     "lighthouse": "^12.6.0",
+    "npmignore": "^0.3.1",
     "playwright": "^1.52.0",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "tsup": "^8.5.0"
   }
 }
