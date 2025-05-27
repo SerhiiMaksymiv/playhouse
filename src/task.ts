@@ -1,6 +1,7 @@
-import lighthouseLib, { RunnerResult } from 'lighthouse';
-import { Thresholds, ScoreResult, Settings, CompareResult, ThresholdKeys } from './types.js';
-import { report } from './report.js';
+import lighthouseLib, { RunnerResult, startFlow, UserFlow } from 'lighthouse';
+import { Thresholds, ScoreResult, Settings, CompareResult, ThresholdKeys } from './types';
+import { report } from './report';
+import puppeteer from 'puppeteer';
 
 const compare = (thresholds: Thresholds, newValue: Thresholds): CompareResult => {
   const errors: string[] = [];
@@ -63,4 +64,16 @@ export const lighthouse = async ({
 
   const localComparison = compare(thresholds, newValues);
   return { comparison: localComparison, results };
+};
+
+export const start = async (): Promise<UserFlow> => {
+  const res = await fetch("http://localhost:9223/json/version");
+  const data = await res.json();
+  const browser = await puppeteer.connect({
+    browserWSEndpoint: data.webSocketDebuggerUrl
+  });
+  const [page] = await browser.pages();
+  console.log('page:', page.url());
+
+  return startFlow(page)
 };
