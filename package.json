@@ -1,5 +1,5 @@
 {
-  "name": "litgherhouse",
+  "name": "lighterhouse",
   "version": "4.0.17",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
