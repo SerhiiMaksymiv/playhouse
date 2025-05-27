@@ -15,21 +15,19 @@ export default defineConfig({
     [`html`, { outputFolder: 'html-report', open: 'never' }],
   ],
 
-  use: {
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    launchOptions: {
-      args: [ (process.env.headless ? '--headless=new' : ''), '--hide-scrollbars']
-    }
-  },
-
   projects: [
     {
       name: 'audit',
       testDir: 'test',
       testMatch: /.*.spec.ts/,
       use: { 
-        ...devices['Desktop Chrome']
+        ...devices['Desktop Chrome'],
+        trace: 'on-first-retry',
+        screenshot: 'only-on-failure',
+        viewport: { width: 1936, height: 1056 },
+        launchOptions: {
+          args: [ (process.env.headless ? '--headless=new' : ''), '--hide-scrollbars']
+        }
       }
     }
   ],

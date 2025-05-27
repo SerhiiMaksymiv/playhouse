@@ -1,6 +1,6 @@
-import { playAudit } from './audit.js';
-import { report } from './report.js';
+import { playAudit, startFlow } from './audit.js';
+import { report, flowReport } from './report.js';
 
 export * from './types.js';
-export { report }
-export { playAudit };
+export { report, flowReport }
+export { playAudit, startFlow };

@@ -1,4 +1,4 @@
-import { playAudit } from '../src/audit.ts';
+import { playAudit } from '../src/audit.js';
 import { test, chromium, Browser, Page, expect } from '@playwright/test';
 
 test.describe('audit example', () => {

@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { playAudit } from '../src/audit.ts';
+import { playAudit } from '../src/audit.js';
 import { Browser, chromium, Page, test } from '@playwright/test';
 
 test.describe('reports example', () => {

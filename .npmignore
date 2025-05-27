@@ -1,4 +1,4 @@
-# Rules from: /Users/mcs/repos/playhouse/.gitignore
+# Rules from: /Users/mcs/repos/lighterhouse/.gitignore
 node_modules
 lighthouse
 .DS_Store
