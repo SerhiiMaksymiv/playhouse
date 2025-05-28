@@ -66,14 +66,14 @@ export const lighthouse = async ({
   return { comparison: localComparison, results };
 };
 
-export const start = async (): Promise<UserFlow> => {
-  const res = await fetch("http://localhost:9223/json/version");
+export const flow = async (port: number = 9223): Promise<UserFlow> => {
+  const res = await fetch(`http://localhost:${port}/json/version`);
   const data = await res.json();
+
   const browser = await puppeteer.connect({
     browserWSEndpoint: data.webSocketDebuggerUrl
   });
-  const [page] = await browser.pages();
-  console.log('page:', page.url());
 
+  const [page] = await browser.pages();
   return startFlow(page)
 };

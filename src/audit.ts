@@ -1,6 +1,6 @@
 import { LightherConfig, Thresholds, Reports, ScoreResult } from './types.js';
 import type { UserFlow } from 'lighthouse';
-import { lighthouse, start } from './task.js';
+import { lighthouse, flow } from './task.js';
 
 const defaultThresholds: Thresholds = {
   performance: 100,
@@ -27,6 +27,6 @@ export const playAudit = async function (auditConfig: LightherConfig): Promise<S
   });
 };
 
-export const startFlow = async function (): Promise<UserFlow> {
-  return start();
+export const startFlow = async function (port: number = 9223): Promise<UserFlow> {
+  return flow(port);
 };
