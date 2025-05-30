@@ -1,5 +1,5 @@
 import { startFlow } from '../src/audit.js';
-import { flowHtmlReport } from '../src/report.js';
+import { flowReport } from '../src/report.js';
 import { test, chromium, Browser, Page } from '@playwright/test';
 
 test.describe('flow example', () => {
@@ -26,10 +26,8 @@ test.describe('flow example', () => {
     await page.waitForTimeout(3000)
     await flow.endTimespan();
 
-    const result = await flow.createFlowResult()
-
     const reportDirectory = `${process.cwd()}/lighthouse`;
     const reportFilename = 'flow-report-test';
-    await flowHtmlReport(result, reportDirectory, reportFilename);
+    await flowReport(flow, reportDirectory, reportFilename);
   });
 });
