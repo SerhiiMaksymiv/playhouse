@@ -35,7 +35,7 @@ export type ScoreResult = {
 }
 
 export type Reports = {
-  formats: OutputMode | OutputMode[];
+  formats?: OutputMode | OutputMode[];
   directory?: string;
   name?: string;
 }
