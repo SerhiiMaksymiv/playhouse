@@ -54,8 +54,6 @@ export const lighthouse = async ({
 
 export const flow = async ({
   cdpPort = 9223,
-  opts = {},
-  config = {},
 }: FlowSettings): Promise<UserFlow> => {
   const debuggerUrl = `http://localhost:${cdpPort}/json/version`;
   const res = await fetch(debuggerUrl);
@@ -74,5 +72,5 @@ export const flow = async ({
   }
 
   const [page] = await browser.pages();
-  return startFlow(page, { flags: opts, config })
+  return startFlow(page)
 };
