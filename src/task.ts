@@ -1,6 +1,5 @@
 import lighthouseLib, { RunnerResult, startFlow, UserFlow } from 'lighthouse';
-import { Thresholds, ScoreResult, Settings, CompareResult, ThresholdKeys } from './types';
-import { report } from './report';
+import { Thresholds, ScoreResult, Settings, CompareResult, ThresholdKeys, FlowSettings } from './types';
 import puppeteer from 'puppeteer';
 
 const compare = (thresholds: Thresholds, newValue: Thresholds): CompareResult => {
@@ -22,7 +21,6 @@ export const lighthouse = async ({
   thresholds,
   opts = {},
   config,
-  reports,
   cdpPort,
 }: Settings): Promise<ScoreResult> => {
 
@@ -50,30 +48,31 @@ export const lighthouse = async ({
     newValues[key] = categories[key].score * 100
   }
 
-  for (var _ in reports) {
-    var value = reports.formats
-    if (value) {
-      await report(
-        results,
-        value,
-        reports.directory,
-        reports.name
-      );
-    }
-  }
-
   const localComparison = compare(thresholds, newValues);
   return { comparison: localComparison, results };
 };
 
-export const flow = async (port: number = 9223): Promise<UserFlow> => {
-  const res = await fetch(`http://localhost:${port}/json/version`);
+export const flow = async ({
+  cdpPort = 9223,
+  opts = {},
+  config = {},
+}: FlowSettings): Promise<UserFlow> => {
+  const debuggerUrl = `http://localhost:${cdpPort}/json/version`;
+  const res = await fetch(debuggerUrl);
   const data = await res.json();
+
+  if (!data) {
+    throw new Error('Unable to get debugger url data');
+  }
 
   const browser = await puppeteer.connect({
     browserWSEndpoint: data.webSocketDebuggerUrl
   });
 
+  if (!browser) {
+    throw new Error('Puppeteer failed to connect to browser');
+  }
+
   const [page] = await browser.pages();
-  return startFlow(page)
+  return startFlow(page, { flags: opts, config })
 };

@@ -10,10 +10,11 @@ export const report = async (results: RunnerResult, type: OutputMode | OutputMod
   await fs.writeFile(`${dir}/${fileName}.${type}`, reportBody);
 };
 
-export const flowReport = async (results: FlowResult, dir?: string, name?: string): Promise<void> => {
+export const flowHtmlReport = async (results: FlowResult, dir?: string, name?: string): Promise<void> => {
   const directory = dir || `${process.cwd()}/lighthouse`;
   const fileName = name || `lighthouse-${new Date().getTime()}`
   const reportBody = ReportGenerator.generateFlowReportHtml(results);
   await fs.mkdir(directory, { recursive: true });
   await fs.writeFile(`${dir}/${fileName}.html`, reportBody);
 };
+

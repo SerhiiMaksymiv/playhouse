@@ -1,5 +1,5 @@
 import { startFlow } from '../src/audit.js';
-import { flowReport } from '../src/report.js';
+import { flowHtmlReport } from '../src/report.js';
 import { test, chromium, Browser, Page } from '@playwright/test';
 
 test.describe('flow example', () => {
@@ -19,8 +19,10 @@ test.describe('flow example', () => {
   });
 
   test('flow page', async () => {
-    const flow = await startFlow();
-    await flow.startTimespan({ name: 'Download Report' });
+    const flow = await startFlow({
+      cdpPort: 9223,
+    });
+    await flow.startTimespan();
     await page.waitForTimeout(3000)
     await flow.endTimespan();
 
@@ -28,6 +30,6 @@ test.describe('flow example', () => {
 
     const reportDirectory = `${process.cwd()}/lighthouse`;
     const reportFilename = 'flow-report-test';
-    await flowReport(result, reportDirectory, reportFilename);
+    await flowHtmlReport(result, reportDirectory, reportFilename);
   });
 });

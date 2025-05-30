@@ -45,6 +45,8 @@ export type Settings = {
   thresholds: Thresholds;
   opts?: Flags
   config?: Config
-  reports?: Reports
   cdpPort: number
 }
+
+export type FlowSettings = Pick<Settings, | 'opts' | 'config' | 'cdpPort'>
+
