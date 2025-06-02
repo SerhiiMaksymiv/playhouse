@@ -4,11 +4,10 @@
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
   "types": "dist/index.d.mjs",
-  "type": "module",
   "scripts": {
     "prebuild": "rimraf lib dist",
     "build": "tsup",
-    "test": "playwright test --headed --project audit"
+    "test": "playwright test --project audit"
   },
   "publishConfig": {
     "ignore": [
