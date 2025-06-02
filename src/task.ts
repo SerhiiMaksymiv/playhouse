@@ -64,7 +64,7 @@ export const flow = async ({
   }
 
   const browser = await puppeteer.connect({
-    browserWSEndpoint: data.webSocketDebuggerUrl
+    browserWSEndpoint: data.webSocketDebuggerUrl,
   });
 
   if (!browser) {

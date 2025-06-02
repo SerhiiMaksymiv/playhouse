@@ -8,7 +8,9 @@ test.describe('flow example', () => {
 
   test.beforeEach(async () => {
     browser = await chromium.launch({
-      args: ['--remote-debugging-port=9223'],
+      args: [
+        '--remote-debugging-port=9223',
+      ],
     });
     page = await browser.newPage();
     await page.goto('https://angular.io/');
@@ -22,7 +24,8 @@ test.describe('flow example', () => {
     const flow = await startFlow({
       cdpPort: 9223,
     });
-    await flow.startTimespan();
+    await flow.startTimespan({ name: 'test' });
+    await page.setViewportSize({ width: 1920, height: 1080 });
     await page.waitForTimeout(3000)
     await flow.endTimespan();
 
