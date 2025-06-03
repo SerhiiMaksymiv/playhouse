@@ -1,4 +1,4 @@
-import lighthouseLib, { RunnerResult, startFlow, UserFlow } from 'lighthouse';
+import lighthouseLib, { RunnerResult, startFlow, UserFlow, desktopConfig } from 'lighthouse';
 import { Thresholds, ScoreResult, Settings, CompareResult, ThresholdKeys, FlowSettings } from './types';
 import puppeteer from 'puppeteer';
 
@@ -72,5 +72,5 @@ export const flow = async ({
   }
 
   const [page] = await browser.pages();
-  return startFlow(page)
+  return startFlow(page, { config: desktopConfig });
 };

@@ -25,7 +25,6 @@ test.describe('flow example', () => {
       cdpPort: 9223,
     });
     await flow.startTimespan({ name: 'test' });
-    await page.setViewportSize({ width: 1920, height: 1080 });
     await page.waitForTimeout(3000)
     await flow.endTimespan();
 
