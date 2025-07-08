@@ -33,7 +33,7 @@ export const lighthouse = async ({
   const results: RunnerResult | undefined = await lighthouseLib(
     url,
     { disableStorageReset: true, ...opts },
-    config
+    desktopConfig
   );
 
   if (!results) {

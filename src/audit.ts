@@ -1,5 +1,5 @@
 import { LightherConfig, Thresholds, ScoreResult, FlowSettings } from './types.js';
-import type { UserFlow } from 'lighthouse';
+import { UserFlow, desktopConfig } from 'lighthouse';
 import { lighthouse, flow } from './task.js';
 import { report } from './report.js';
 
@@ -24,7 +24,7 @@ export const playAudit = async function (auditConfig: LightherConfig): Promise<S
     url: auditConfig.url || auditConfig.page.url(),
     thresholds: auditConfig.thresholds || defaultThresholds,
     opts: auditConfig.opts,
-    config: auditConfig.config,
+    config: auditConfig.config || desktopConfig,
     cdpPort: auditConfig.port,
   });
 
