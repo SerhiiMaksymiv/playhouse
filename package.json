@@ -1,6 +1,6 @@
 {
   "name": "lighterhouse",
-  "version": "4.1.8",
+  "version": "4.1.10",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
   "types": "dist/index.d.mjs",
@@ -33,13 +33,13 @@
   "devDependencies": {
     "@types/node": "^16.18.126",
     "npmignore": "^0.3.1",
-    "@playwright/test": "^1.52.0",
+    "@playwright/test": "^1.53.2",
     "rimraf": "^6.0.1",
     "tsup": "^8.5.0"
   },
   "dependencies": {
     "lighthouse": "^12.6.0",
-    "playwright": "^1.52.0",
+    "playwright": "^1.53.2",
     "puppeteer": "^24.9.0",
     "typescript": "^5.8.3"
   }

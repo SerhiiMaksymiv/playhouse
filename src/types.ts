@@ -1,4 +1,4 @@
-import type { Page } from 'playwright-core';
+import type { Page } from '@playwright/test';
 import type { Flags, Config, RunnerResult, OutputMode } from 'lighthouse';
 
 export type ThresholdKeys = keyof Thresholds;
