@@ -20,7 +20,7 @@ export const lighthouse = async ({
   url,
   thresholds,
   opts = {},
-  config = desktopConfig,
+  config,
   cdpPort,
 }: Settings): Promise<ScoreResult> => {
 
@@ -38,7 +38,7 @@ export const lighthouse = async ({
       disableStorageReset: true, 
       ...opts 
     },
-    config
+    desktopConfig
   );
 
   if (!results) {

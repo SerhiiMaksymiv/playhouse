@@ -1,7 +1,6 @@
 {
   "name": "lighterhouse",
-  "version": "4.1.16",
-  "type": "module",
+  "version": "4.1.17",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
   "types": "dist/index.d.mjs",
