@@ -3,6 +3,7 @@
   "version": "4.1.12",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
+  "type": "module",
   "types": "dist/index.d.mjs",
   "scripts": {
     "prebuild": "rimraf lib dist",
