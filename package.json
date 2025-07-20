@@ -1,8 +1,7 @@
 {
   "name": "lighterhouse",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "author": "Serhii Maksymiv",
-  "type": "module",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
   "types": "dist/index.d.mjs",
