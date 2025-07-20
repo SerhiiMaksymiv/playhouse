@@ -11,7 +11,20 @@ export default defineConfig({
   retries: 0,
   workers: 1,
 
+
   reporter: [
+    [`allure-playwright`,
+      {
+        detail: true,
+        resultsDir: "allure-results",
+        suiteTitle: false,
+
+        environmentInfo: {
+          NodeVersion: process.version,
+        },
+      }
+    ], 
+
     [`html`, { outputFolder: 'html-report', open: 'never' }],
   ],
 

@@ -6,3 +6,6 @@ test-results
 html-report
 .npmignore
 dist/
+allure-results/
+allure-report/
+audit-test-results/

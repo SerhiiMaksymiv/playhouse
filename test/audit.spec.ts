@@ -1,4 +1,5 @@
 import { playAudit } from '../src/audit.js';
+import { attachmentPath, ContentType } from 'allure-js-commons'
 import { test, chromium, Browser, Page, expect } from '@playwright/test';
 
 test.describe('audit example', () => {
@@ -17,19 +18,48 @@ test.describe('audit example', () => {
     await browser.close();
   });
 
-  test('audits page', async () => {
+  test('audit mobile page', async () => {
     const result = await playAudit({
       page: page,
-      thresholds: {
-        performance: 50,
-        accessibility: 50,
-        'best-practices': 50,
-        seo: 50,
-        pwa: 50,
-      },
       port: 9223,
+      settings: 'mobile',
+      reports: {
+        formats: ['html'],
+        directory: `${process.cwd()}/audit-test-results`,
+        name: 'audit',
+      },
     });
 
-    expect(result.comparison.errors).toEqual([]);
+    try {
+      expect(result.comparison.errors).toEqual([])
+    } catch (e) {
+      await attachmentPath("Audit", `${process.cwd()}/audit-test-results/audit.html`, {
+        contentType: ContentType.HTML,
+      });
+
+      throw e
+    }
+  });
+
+  test('audit desktop page', async () => {
+    const result = await playAudit({
+      page: page,
+      port: 9223,
+      reports: {
+        formats: ['html'],
+        directory: `${process.cwd()}/audit-test-results`,
+        name: 'audit',
+      },
+    });
+
+    try {
+      expect(result.comparison.errors).toEqual([])
+    } catch (e) {
+      await attachmentPath("Audit", `${process.cwd()}/audit-test-results/audit.html`, {
+        contentType: ContentType.HTML,
+      });
+
+      throw e
+    }
   });
 });

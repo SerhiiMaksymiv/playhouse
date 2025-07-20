@@ -15,7 +15,7 @@ export type LightherConfig = {
   page: Page;
   url?: string;
   port: number;
-  thresholds: Thresholds;
+  thresholds?: Thresholds;
   opts?: Flags;
   config?: Config
   reports?: Reports

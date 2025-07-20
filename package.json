@@ -1,14 +1,16 @@
 {
   "name": "lighterhouse",
-  "version": "4.1.20",
+  "version": "4.2.0",
   "author": "Serhii Maksymiv",
+  "type": "module",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
   "types": "dist/index.d.mjs",
   "scripts": {
     "prebuild": "rimraf lib dist",
     "build": "tsup",
-    "test": "playwright test --project audit"
+    "test": "playwright test --project audit",
+    "report": "allure generate allure-results --clean && allure open"
   },
   "publishConfig": {
     "ignore": [
@@ -36,7 +38,8 @@
     "npmignore": "^0.3.1",
     "rimraf": "^6.0.1",
     "tsup": "^8.5.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "allure-playwright": "^3.3.0"
   },
   "dependencies": {
     "lighthouse": "^12.6.0",
