@@ -1,6 +1,6 @@
 {
   "name": "lighterhouse",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "author": "Serhii Maksymiv",
   "description": "Playwright Lighthouse Audit",
   "main": "dist/index.mjs",
@@ -41,8 +41,8 @@
     "allure-playwright": "^3.3.0"
   },
   "dependencies": {
-    "lighthouse": "^12.6.0",
-    "puppeteer": "^24.9.0",
+    "lighthouse": "^12.7.1",
+    "puppeteer": "^24.12.0",
     "playwright": "^1.53.2",
     "@playwright/test": "^1.53.2"
   }
