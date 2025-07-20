@@ -26,6 +26,7 @@ export const playAudit = async function (auditConfig: LightherConfig): Promise<S
     opts: auditConfig.opts,
     config: auditConfig.config,
     cdpPort: auditConfig.port,
+    settings: auditConfig.settings,
   });
 
   if (auditConfig.reports) {

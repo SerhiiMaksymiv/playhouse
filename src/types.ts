@@ -22,6 +22,7 @@ export type LightherConfig = {
   ignoreError?: boolean;
   disableLogs?: boolean;
   ignoreBrowserName?: boolean;
+  settings?: 'mobile' | 'desktop'
 }
 
 export type CompareResult = {
@@ -46,6 +47,7 @@ export type Settings = {
   opts?: Flags
   config?: Config
   cdpPort: number
+  settings?: 'mobile' | 'desktop'
 }
 
 export type FlowSettings = Pick<Settings, | 'opts' | 'config' | 'cdpPort'>

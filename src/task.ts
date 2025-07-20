@@ -20,6 +20,7 @@ export const lighthouse = async ({
   url,
   thresholds,
   opts = {},
+  settings = 'desktop',
   config,
   cdpPort,
 }: Settings): Promise<ScoreResult> => {
@@ -33,12 +34,13 @@ export const lighthouse = async ({
   const results: RunnerResult | undefined = await lighthouseLib(
     url,
     { 
-      screenEmulation: { mobile: false },
-      formFactor: 'desktop',
+      screenEmulation: { mobile: (settings === 'mobile') },
+      formFactor: settings || 'desktop',
       disableStorageReset: true, 
       ...opts 
     },
-    desktopConfig
+
+    settings === 'mobile' ? config : desktopConfig
   );
 
   if (!results) {
