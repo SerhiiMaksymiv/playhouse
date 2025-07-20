@@ -1,6 +1,6 @@
 {
   "name": "lighterhouse",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "author": "Serhii Maksymiv",
   "type": "module",
   "description": "Playwright Lighthouse Audit",
